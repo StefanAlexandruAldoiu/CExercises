@@ -19,13 +19,13 @@ void push(double f)
 	   printf("error: stack full, can't push %g\n", f); 
 }
 /* pop:  pop and return top value from stack */ 
-double pop(void) 
+double pop() 
 { 
 	if (sp > 0) 
 	   return val[--sp]; 
 	else { 
 	   printf("error: stack empty\n"); 
-	   return 0.0; 
+	   return 0.0;
 	} 
 }   
 
@@ -66,36 +66,52 @@ int getop(char s[]) {
 int main() {
 	int type; 
 	double op2; 
-	char s[MAXOP]; 
+	char s[MAXOP];
+       	int nr_ops = 0;	
 	while ((type = getop(s)) != EOF) { 
-	   switch (type) { 
-	   case NUMBER: 
-	       push(atof(s)); 
-	       break; 
-	   case '+': 
-	       push(pop() + pop()); 
-	       break; 
-	   case '*': 
-	       push(pop() * pop()); 
-	       break; 
-	   case '-': 
-	       op2 = pop(); 
-	       push(pop() - op2); 
-	       break; 
-	   case '/': 
-	       op2 = pop(); 
-	       if (op2 != 0.0) 
-		   push(pop() / op2); 
-	       else 
-		   printf("error: zero divisor\n"); 
-	       break; 
-	   case '\n': 
-	       printf("\t%.8g\n", pop()); 
-	       break; 
-	   default: 
-	       printf("error: unknown command %s\n", s); 
-	       break; 
-	   } 
+		switch (type) { 
+		case NUMBER: 
+			push(atof(s));
+		       	nr_ops += 1;	
+			break; 
+	   	case '+': 
+			if (nr_ops == 2) {
+	      	 		push(pop() + pop());
+				nr_ops = 1;
+			} 
+			break; 
+	   	case '*': 
+	       		push(pop() * pop()); 
+	       		break; 
+	  	case '-':
+			if (nr_ops == 2) { 
+	      			op2 = pop(); 
+	       			push(pop() - op2); 
+				nr_ops = 1;
+	       		} else
+				push(0 - pop());
+
+			break;
+	   	case '/': 
+	       		op2 = pop(); 
+	       		if (op2 != 0.0){ 
+		   		push(pop() / op2);
+ 				nr_ops = 1;
+			} else 
+		   		printf("error: zero divisor\n"); 
+	       		break;
+		case '%':
+			op2 = pop();
+			push((int)pop() % (int)op2);
+			break;	
+	   	case '\n': 
+	       		printf("\t%.8g\n", pop());
+		       	nr_ops = 0;	
+	       		break; 
+	   	default: 
+	       		printf("error: unknown command %s\n", s); 
+	       		break; 
+	   	} 
 	} 
 	return 0; 
 }
