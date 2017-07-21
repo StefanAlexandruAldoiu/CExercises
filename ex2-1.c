@@ -25,12 +25,15 @@ int main(){
 
 	printf("#######################Limits from computation ################\n");
 
-	unsigned char a1;
+	unsigned char a1,aux;
 	char a2, a3;
 
-	unsigned int b1, c1;
+	unsigned short b1;
+	short b2, b3;
 
-	int b2, b3, c2, c3;
+
+	unsigned int c1;
+	int  c2, c3;
 
 	unsigned long d1;
 	long d2, d3;
@@ -38,9 +41,26 @@ int main(){
 
 	a1 = 0;
 	a1 = ~a1;
-
+	//a2 = -(1 << (sizeof(char) * 8 - 1));
+	//a3 =  (1 << (sizeof(char) * 8 - 1)) - 1;
 	a2 = 0;
-	a2 = ~0U >> 1;
+	a2 = 1 << (sizeof(char) * 8 - 1);
+	a3 = (1 << (sizeof(char) * 8 - 1)) - 1;
+
+	b1 = 0;
+	b1 = ~b1;
+	b2 = (1 << (sizeof(short) * 8 - 1));
+	b3 =  (1 << (sizeof(short) * 8 - 1)) - 1;
+
+	c1 = 0;
+	c1 = ~c1;
+	c2 = (1U << (sizeof(int) * 8 - 1));
+	c3 = (1U << (sizeof(int) * 8 - 1)) - 1;
+	
+	d1 = 0;
+	d1 = ~d1;
+	d2 = (1UL << (sizeof(long) * 8 - 1));
+	d3 = (1UL << (sizeof(long) * 8 - 1)) - 1;
 
 	printf("UpperLimit UnsignedChar : %d\n", a1);
 	printf("LowerLimit         Char : %d\n", a2);
