@@ -3,7 +3,7 @@
 #include <stdlib.h>
 /*Exercise 3-2*/
 
-void escape(char *s, char *t){
+void escape(char *s, char *t) {
 	
 	int i, it = 0;
 	
@@ -35,7 +35,7 @@ void escape(char *s, char *t){
 
 }
 
-void deEscape(char *s, char *t){
+void deEscape(char *s, char *t) {
 	
 	int i, it = 1;
 	char prev;

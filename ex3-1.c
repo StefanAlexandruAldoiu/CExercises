@@ -18,11 +18,9 @@ uint64_t rdtsc() {
 	return (uint64_t)hi << 32 | lo;
 }
 
-int binnary1(int x, int *array, int n){
+int binnary1(int x, int *array, int n) {
 	int min = 0, max = n;
 	int mid;
-	
-
 	while(min < max){
 
 		//printf("Min:%d, Max:%d", min, max);
@@ -48,7 +46,6 @@ int binnary2(int x, int *array, int n){
 		else if (x < array[mid])
 			max = mid;
 		else return mid;
-
 	}
 
 	return -1;	
@@ -78,60 +75,60 @@ int main(){
 	printf("\n N = 1000 numbers\n");
 	number = 300;
 	b = rdtsc();
-	ok = binnary2(number,numbers,1000);
+	ok = binnary2(number, numbers, 1000);
 	e = rdtsc();
 	printf("Unoptimized solution  took:%lld \\", e - b);
 	
 	b = rdtsc();
-	ok = binnary1(number,numbers,1000);
+	ok = binnary1(number, numbers, 1000);
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 	
 	printf("\n N = 10000 numbers\n");
 	number = 3000;
 	b = rdtsc();
-	ok = binnary2(number,numbers,10000);
+	ok = binnary2(number, numbers, 10000);
 	e = rdtsc();
 	printf("Unoptimized solution  took:%lld \\", e - b);
 	
 	b = rdtsc();
-	ok = binnary1(number,numbers,10000);
+	ok = binnary1(number, numbers, 10000);
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 	
 	printf("\n N = 100000 numbers\n");
 	number = 30000;
 	b = rdtsc();
-	ok = binnary2(number,numbers,100000);
+	ok = binnary2(number, numbers, 100000);
 	e = rdtsc();
 	printf("Unoptimized solution  took:%lld \\", e - b);
 	
 	b = rdtsc();
-	ok = binnary1(number,numbers,100000);
+	ok = binnary1(number, numbers, 100000);
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 	
 	printf("\n N = 1000000 numbers\n");
 	number = 300000;
 	b = rdtsc();
-	ok = binnary2(number,numbers,1000000);
+	ok = binnary2(number, numbers, 1000000);
 	e = rdtsc();
 	printf("Unoptimized solution  took:%lld \\", e - b);
 	
 	b = rdtsc();
-	ok = binnary1(number,numbers,1000000);
+	ok = binnary1(number, numbers, 1000000);
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 	
 	printf("\n N = 2000000 numbers\n");
 	number = 600000;
 	b = rdtsc();
-	ok = binnary2(number,numbers,2000000);
+	ok = binnary2(number, numbers, 2000000);
 	e = rdtsc();
 	printf("Unoptimized solution  took:%lld \\", e - b);
 	
 	b = rdtsc();
-	ok = binnary1(number,numbers,2000000);
+	ok = binnary1(number, numbers, 2000000);
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 
@@ -145,12 +142,12 @@ int main(){
 		srand(time(NULL));
 		number = rand() % 2000000;
 		b = rdtsc();
-		ok = binnary2(number,numbers,2000000);
+		ok = binnary2(number, numbers, 2000000);
 		e = rdtsc();
 		sumNO += (e - b);
 	
 		b = rdtsc();
-		ok = binnary1(number,numbers,2000000);
+		ok = binnary1(number, numbers, 2000000);
 		e = rdtsc();
 		sumO += (e - b); 
 	}
@@ -166,12 +163,12 @@ int main(){
 		srand(time(NULL));
 		number = rand() % 20000;
 		b = rdtsc();
-		ok = binnary2(number,numbers,2000000);
+		ok = binnary2(number, numbers, 2000000);
 		e = rdtsc();
 		sumNO += (e - b);
 	
 		b = rdtsc();
-		ok = binnary1(number,numbers,2000000);
+		ok = binnary1(number, numbers, 2000000);
 		e = rdtsc();
 		sumO += (e - b); 
 	}
@@ -189,12 +186,12 @@ int main(){
 		srand(time(NULL));
 		number = rand() % 20000;
 		b = rdtsc();
-		ok = binnary2(number,numbers,2000000);
+		ok = binnary2(number, numbers, 2000000);
 		e = rdtsc();
 		sumNO += (e - b);
 	
 		b = rdtsc();
-		ok = binnary1(number,numbers,2000000);
+		ok = binnary1(number, numbers, 2000000);
 		e = rdtsc();
 		sumO += (e - b); 
 	}
@@ -210,12 +207,12 @@ int main(){
 		srand(time(NULL));
 		number = rand() % 20000;
 		b = rdtsc();
-		ok = binnary2(number,numbers,2000000);
+		ok = binnary2(number, numbers, 2000000);
 		e = rdtsc();
 		sumNO += (e - b);
 	
 		b = rdtsc();
-		ok = binnary1(number,numbers,2000000);
+		ok = binnary1(number, numbers, 2000000);
 		e = rdtsc();
 		sumO += (e - b); 
 	}
@@ -223,9 +220,4 @@ int main(){
 	sumO /= 10000;
 	printf("Unoptimized solution  took:%lld \\", sumNO);
 	printf(" Optimized solution took:%lld\n", sumO);
-		
-	
-	
-	
-	
 }

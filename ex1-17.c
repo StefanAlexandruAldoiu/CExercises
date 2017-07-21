@@ -17,8 +17,8 @@ int main() {
 		if (it1 > MAX_NR_LINE)
 			break;
 
-		if (c == '\n'){
-			if (strlen(current_line) > 80){
+		if (c == '\n') {
+			if (strlen(current_line) > 80) {
 				strcpy(lines[it1], current_line);
 				it1 += 1;
 			}
@@ -32,7 +32,7 @@ int main() {
 	}
 	
 	printf("\nLines that are longers than 80 chars:\n");
-	for ( i = 0 ; i < it1 ; i ++){
+	for ( i = 0 ; i < it1 ; i ++) {
 		printf("%s\n", lines[i]);	
 	}
 

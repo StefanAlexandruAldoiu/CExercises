@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-int any(char *s1, char *s2){
+int any(char *s1, char *s2) {
 	int i, j;
 	char ok = 0;
-	for (i = 0 ; i < (int)strlen(s1) ; i++){
-		for (j = 0 ; j < (int)strlen(s2); j++){
+	for (i = 0 ; i < (int)strlen(s1) ; i++) {
+		for (j = 0 ; j < (int)strlen(s2); j++) {
 			if (s1[i] == s2[j]){
 				ok = 1;
 				break;

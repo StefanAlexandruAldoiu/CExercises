@@ -2,15 +2,15 @@
 #include <string.h>
 #include <stdlib.h>
 
-unsigned pow2(unsigned exponent){
+unsigned pow2(unsigned exponent) {
 	int i, r = 1;
-	for (i = 0 ; i < exponent; i++){
+	for (i = 0 ; i < exponent; i++) {
 		r = r * 2;
 	}
 	return r;
 }
 
-unsigned setBits(unsigned x, int p, int n, unsigned y){
+unsigned setBits(unsigned x, int p, int n, unsigned y) {
 	int i, j;
 	char ok = 0;
 	
@@ -42,7 +42,7 @@ int main(){
 	}
 	s1[i] = '\0';
 	x = atoi(s1);
-	memset(s1,0,sizeof(s1));
+	memset(s1, 0, sizeof(s1));
 	i = 0;
 
 	printf("\nEnter The y:\n");
@@ -55,7 +55,7 @@ int main(){
 	}
 	s1[i] = '\0';
 	y = atoi(s1);
-	memset(s1,0,sizeof(s1));
+	memset(s1, 0, sizeof(s1));
 	i = 0;
 
 	printf("\nEnter The p:\n");
@@ -68,7 +68,7 @@ int main(){
 	}
 	s1[i] = '\0';
 	p = atoi(s1);
-	memset(s1,0,sizeof(s1));
+	memset(s1, 0, sizeof(s1));
 	i = 0;
 	
 	printf("\nEnter The n:\n");
@@ -81,7 +81,7 @@ int main(){
 	}
 	s1[i] = '\0';
 	n = atoi(s1);
-	memset(s1,0,sizeof(s1));
+	memset(s1, 0, sizeof(s1));
 	i = 0;
 
 	printf("\nThe result is:%d\n", setBits(x, p, n, y));

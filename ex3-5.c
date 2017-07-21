@@ -10,14 +10,14 @@ void itob(int n, char *s, int b){
 	char aux;
 	int i;
 
-	while(n != 0){
+	while(n != 0) {
 		sprintf(modulus, "%d" , n % b);
 		strcat(s,modulus);
 		memset(modulus, 0 ,sizeof(modulus));
 		n /= b;
 	}
 
-	for (i = 0 ; i < (int)strlen(s) / 2 ; i++){	
+	for (i = 0 ; i < (int)strlen(s) / 2 ; i++) {	
 		aux = s[i];
 		s[i] = s[strlen(s) - i - 1];
 		s[strlen(s) - i - 1] = aux;	

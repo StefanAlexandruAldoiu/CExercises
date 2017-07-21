@@ -28,5 +28,5 @@ int main() {
 			output[it] = c;
 		it += 1;
 	}
-	printf("\nThe converted text is:\n%s\n",output);
+	printf("\nThe converted text is:\n%s\n", output);
 }

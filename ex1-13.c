@@ -40,24 +40,24 @@ int main() {
 	}
 	spaces[100] = '\0';
 
-	for (i = 0 ; i < max_len ; i++){
-		for (j = 0 ; j < it1 ; j++){
+	for (i = 0 ; i < max_len ; i++) {
+		for (j = 0 ; j < it1 ; j++) {
 		
 			len = strlen(words[j]);
 
 			if (len >= (max_len - i)) {
 			
-				if (len % 2 == 0){
+				if (len % 2 == 0) {
 					printf("%s", &spaces[100 - len/2]);
 					printf("|");
 					printf("%s", &spaces[100 - len/2 + 1]);
-				}else{
+				}else {
 					printf("%s", &spaces[100 - len/2]);
 					printf("|");
 					printf("%s", &spaces[100 - len/2]);
 
 				}
-			}else{
+			}else {
 				/* Print " " x (strlen)*/
 				printf("%s", &spaces[ 100 - (strlen(words[j]))]);
 			}
@@ -67,7 +67,7 @@ int main() {
 		printf("\n");
 	}
 
-	for (i = 0 ; i < it1 ; i++){
+	for (i = 0 ; i < it1 ; i++) {
 		printf("%s ",words[i]);
 	}
 

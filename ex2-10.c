@@ -3,20 +3,18 @@
 #include <stdlib.h>
 
 
-void lower(char *s){
+void lower(char *s) {
 	
 	int i = 0;
-	for (i = 0 ; i < (int)strlen(s); i++){
+	for (i = 0 ; i < (int)strlen(s); i++) {
 		s[i] = (s[i] <= 90 && s[i] >= 65) ? s[i] + 32 : s[i];
 	}
 }
 
 int main(){
 
-
 	char s1[100];
-	int c, i = 0; 
-	
+	int c, i = 0; 	
 
 	printf("\nEnter The string to lower-ize:\n");
 	while ((c = getchar()) != EOF) {

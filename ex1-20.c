@@ -11,7 +11,7 @@ int main(int argc, char **argv) {
 	int c, i = 0;
 	char prev = 'a';
 	
-	if (argc > 1){
+	if (argc > 1) {
 		tab_len = atoi(argv[1]);
 	}
 
@@ -21,12 +21,12 @@ int main(int argc, char **argv) {
 		if (i > INPUT_LEN)
 			break;
 		if (c == '\t') {
-			if (i % tab_len == 0){
-				if (prev != ' '){
+			if (i % tab_len == 0) {
+				if (prev != ' ') {
 					output[i] = ' ';
 					i += 1;
 					
-					while( i % tab_len != 0){	
+					while( i % tab_len != 0) {	
 						output[i] = ' ';
 						i += 1;
 					}
@@ -37,7 +37,7 @@ int main(int argc, char **argv) {
 				output[i] = ' ';
 				i += 1;
 
-				while( i % tab_len != 0){
+				while( i % tab_len != 0) {
 					output[i] = ' ';
 					i += 1;
 				}
@@ -51,5 +51,5 @@ int main(int argc, char **argv) {
 		
 	}
 	
-	printf("\nThe resulting text:\n%s\n",output);
+	printf("\nThe resulting text:\n%s\n", output);
 }
