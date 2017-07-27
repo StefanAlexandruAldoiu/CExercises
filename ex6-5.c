@@ -12,6 +12,7 @@ static struct nlist *hashtab[HASHSIZE];  /* pointer table */
 
 
 
+char *istrdup(char *); 
 
 /* hash:  form hash value for string s */ 
 unsigned hash(char *s) 
@@ -47,7 +48,6 @@ struct nlist *lookup(char *s)
 }
 
 
-char *istrdup(char *); 
 /* install:  put (name, defn) in hashtab */ 
 struct nlist *install(char *name, char *defn) 
 { 
@@ -104,8 +104,6 @@ struct nlist *undef(char *name, char *defn)
 	} 
 }
 int main(){
-    
-
     install("alex", "superman");
     install("bogdan", "batman");
     install("andrei", "spiderman");

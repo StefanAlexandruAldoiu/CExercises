@@ -21,7 +21,9 @@ int main(int argc, char *argv[]) {
 
 	if (fp1 == NULL || fp2 == NULL)
 		exit(EXIT_FAILURE);
-	while((read1 = getline(&line1, &len1, fp1 )) != -1 && (read2 = getline(&line2, &len2, fp2 )) != -1) {
+
+	while((read1 = getline(&line1, &len1, fp1)) != -1 &&
+        (read2 = getline(&line2, &len2, fp2)) != -1) {
 
 		
 		if (strcmp (line1, line2) != 0) {
@@ -35,17 +37,16 @@ int main(int argc, char *argv[]) {
 	}
 	
 	if (feof(fp1) == 0) {
-		read1 = getline(&line1, &len1, fp1 );
+		read1 = getline(&line1, &len1, fp1);
 		printf ("FP1:%s\n", line1);
 		printf ("FP2: is closed.\n");
 	}
 	 
-        if (feof(fp2) == 0) {
-                read1 = getline(&line2, &len2, fp2 );
-		printf ("FP1: is closed.\n");
-                printf ("FP2:%s\n", line2);
-        }
-	
+    if (feof(fp2) == 0) {
+            read1 = getline(&line2, &len2, fp2 );
+	        printf ("FP1: is closed.\n");
+            printf ("FP2:%s\n", line2);
+    }
 	fclose(fp1);
 	fclose(fp2);
 }

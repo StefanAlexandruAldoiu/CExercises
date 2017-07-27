@@ -27,7 +27,7 @@ void itob(int n, char *s, int b){
 int main() {
 
 	int c;
-       	char output[10000]; 
+    char output[10000]; 
 	int it = 0;
 	int number;
 	int base;

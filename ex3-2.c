@@ -58,9 +58,6 @@ void deEscape(char *s, char *t) {
 				break;
 			
 			}
-
-			
-
 		case 't':
 			if (prev == '\\'){
 				t[it - 1] = '\t';
@@ -77,11 +74,9 @@ void deEscape(char *s, char *t) {
 			t[it] = s[i];
 			it += 1;
 			prev = s[i]; 
-			break;
-			
+			break;	
 		}
 	}
-
 }
 
 int main() {

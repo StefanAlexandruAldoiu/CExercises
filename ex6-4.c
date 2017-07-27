@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "getch.c"
 #define MAXWORD 100 
+
 struct tnode {     /* the tree node: */ 
 	char *word;           /* points to the text */ 
 	int count;            /* number of occurrences */ 
@@ -12,7 +13,8 @@ struct tnode {     /* the tree node: */
 };
 
 struct tnode *addtree(struct tnode *, char *);
-
+char *istrdup(char *);
+struct tnode *talloc(void); 
 void word_count_addtree(struct tnode **, char *, int); 
 void treeprint(struct tnode *);
 void insert_priority_queue(struct tnode *, struct tnode **); 
@@ -35,9 +37,6 @@ int main() {
 	return 0; 
 } 
  
-
-char *istrdup(char *);
-struct tnode *talloc(void); 
 
 /* addtree:  add a node with w, at or below p */ 
 struct tnode *addtree(struct tnode *p, char *w) 

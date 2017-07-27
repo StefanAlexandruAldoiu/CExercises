@@ -19,11 +19,12 @@ uint64_t rdtsc() {
 }
 
 int binnary1(int x, int *array, int n) {
+
 	int min = 0, max = n;
 	int mid;
+
 	while(min < max){
 
-		//printf("Min:%d, Max:%d", min, max);
 		mid = (min + max) >> 1;
 		if (x > array[mid])
 			min = mid + 1;
@@ -34,13 +35,13 @@ int binnary1(int x, int *array, int n) {
 }
 
 int binnary2(int x, int *array, int n){
+
 	int min = 0, max = n - 1;
 	int mid;
 	
 	while(min <= max){
 		
 		mid = (min + max) >> 1;
-		//printf("Min:%d, Max:%d and arraymax:%d, arraymin:%d and mid:%d, and x:%d\n", min, max,array[max],array[min],array[mid], x);
 		if (x > array[mid])
 			min = mid + 1;
 		else if (x < array[mid])
@@ -69,8 +70,6 @@ int main(){
 	for ( i = 0 ; i < 2000000 ; i++)
 		numbers[i] = i;
 	
-	
-	printf("\n################### Arhitecture dependent meassurement s####################\n\n");
 	printf("\n################## Variation of  dataset size: ###############################\n");
 	printf("\n N = 1000 numbers\n");
 	number = 300;
@@ -132,12 +131,11 @@ int main(){
 	e = rdtsc();
 	printf(" Optimized solution took:%lld\n", e - b);
 
-
-
 	printf("\n################## Variation of statements: Random searching nunbers ###############################\n");   
 	printf("\n For 10 searching numbers in a 2 milion interval\n");
 	sumO = 0;
 	sumNO = 0;
+
 	for (i = 0; i < 10 ; i++){
 		srand(time(NULL));
 		number = rand() % 2000000;

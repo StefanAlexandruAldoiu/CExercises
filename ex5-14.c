@@ -2,9 +2,12 @@
 #include <string.h>
 #include <stdlib.h>
 #define MAXLINES 5000
+#define MAXLEN 1000
 
 char *lineptr[MAXLINES];
 
+int igetline(char *, int);
+char *alloc(int);
 int ireadlines(char *lineptr[], int nlines);
 void iwritelines(char *lineptr[], int nlines);
 
@@ -104,9 +107,7 @@ void swap(void *v[], int i, int j){
 	v[j] = temp;
 }
 
-#define MAXLEN 1000
-int igetline(char *, int);
-char *alloc(int);
+
 
 
 int ireadlines(char *lineptr[], int maxlines){

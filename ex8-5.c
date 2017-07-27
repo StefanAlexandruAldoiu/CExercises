@@ -8,7 +8,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #ifndef DIRSIZ 
-#define DIRSIZ  14 
+#define DIRSIZ  14
+#define MAX_PATH 1024  
 #endif 
 
 /* system-dependent */ 
@@ -16,12 +17,15 @@ typedef struct {       /* portable directory entry */
     long ino;                  /* inode number */ 
     char name[NAME_MAX+1];     /* name + '\0' terminator */ 
 } Direnti; 
+
 typedef struct {       /* minimal DIR: no buffering, etc. */ 
     int fd;               /* file descriptor for the directory */ 
     Direnti d;             /* the directory entry */ 
 } DIRi; 
 
-//int fstat(int fd, struct stat *); 
+
+void fsize(char *); 
+void dirwalk(char *, void (*fcn)(char *)); 
 
 /* opendir:  open a directory for readdir calls */ 
 DIRi *opendiri(char *dirname) 
@@ -45,9 +49,8 @@ void closediri(DIRi *dp) {
     free(dp); 
     } 
 } 
-
    
-   /* readdir:  read directory entries in sequence */ 
+/* readdir:  read directory entries in sequence */ 
 Direnti *readdiri(DIRi *dp) 
 { 
     struct direct dirbuf;  /* local directory structure */ 
@@ -63,21 +66,6 @@ Direnti *readdiri(DIRi *dp)
     return NULL; 
 } 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-void fsize(char *); 
 /* print file name */ 
 int main(int argc, char **argv) 
 {
@@ -89,12 +77,7 @@ int main(int argc, char **argv)
     return 0; 
 } 
 
-
-//int stat(char *, struct stat *); 
-
-void dirwalk(char *, void (*fcn)(char *)); 
 /* fsize:  print the name of file "name" */ 
-
 void fsize(char *name) 
 { 
     struct stat stbuf; 
@@ -108,10 +91,7 @@ void fsize(char *name)
     printf("size: %8ld and inode:%d for name: %s\n", stbuf.st_size, (int)stbuf.st_ino, name); 
 } 
 
-
-#define MAX_PATH 1024 
 /* dirwalk:  apply fcn to all files in dir */ 
-
 void dirwalk(char *dir, void (*fcn)(char *)) { 
     char name[MAX_PATH]; 
     Direnti *dp; 
@@ -133,7 +113,3 @@ void dirwalk(char *dir, void (*fcn)(char *)) {
     } 
     closediri(dfd); 
 } 
-
-
-
-
